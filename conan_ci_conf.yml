@@ -1,0 +1,51 @@
+
+leaves:
+   PROJECT:
+     profiles:
+        - ./profiles/osx_64
+        - ./profiles/osx_32
+   
+artifactory:
+   name: artifactory
+   repo: conan-local
+   
+repos:
+   LIB_A/1.0:
+     url: https://github.com/lasote/skynet_example.git
+     branch: master
+     dir: ./recipes/A
+
+   LIB_B/1.0:
+     url: https://github.com/lasote/skynet_example.git
+     branch: master
+     dir: ./recipes/b
+
+   LIB_C/1.0:
+     url: https://github.com/lasote/skynet_example.git
+     branch: master
+     dir: ./recipes/C
+
+   LIB_D/1.0:
+     url: https://github.com/lasote/skynet_example.git
+     branch: master
+     dir: ./recipes/D
+
+   LIB_E/1.0:
+     url: https://github.com/lasote/skynet_example.git
+     branch: master
+     dir: ./recipes/E
+
+   LIB_F/1.0:
+     url: https://github.com/lasote/skynet_example.git
+     branch: master
+     dir: ./recipes/F
+
+   LIB_G/1.0:
+     url: https://github.com/lasote/skynet_example.git
+     branch: master
+     dir: ./recipes/G
+
+   PROJECT:
+     url: https://github.com/lasote/skynet_example.git
+     branch: master
+     dir: ./recipes/PROJECT

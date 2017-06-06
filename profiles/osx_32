@@ -1,0 +1,4 @@
+[settings]
+arch=x86
+
+
