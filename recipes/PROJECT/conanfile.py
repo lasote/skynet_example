@@ -12,4 +12,4 @@ class ProjectConan(ConanFile):
 
     def build(self):
         self.output.warn("Building project...")
-        time.sleep(5)
+        time.sleep(2)
