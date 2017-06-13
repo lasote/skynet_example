@@ -12,7 +12,7 @@ def get_build_order_for_leave(ref, leave_name, profiles, repo_branch, repo_url, 
         dir(recipe_dir){
             for(profile in profiles){
                 profiles_bo[profile] = []
-                client.run(command: "info --build_order " + ref + " --json bo.json --profile " + conf_repo_dir + "/" + profile)
+                client.run(command: "info --build_order " + ref + " --json bo.json --profile \"" + conf_repo_dir + "/" + profile+ "\"")
                 def bo_json = readJSON file: "./bo.json"
                 profiles_bo[profile].addAll(bo_json["groups"])
                 echo "Build order for recipe '${ref}' is " + bo_json
@@ -69,7 +69,7 @@ def launch_task_group(tasks_groups, conf_repo_url, conf_repo_branch){
             def a_build = tasks_groups[i][j]
             def label = a_build["build_label"]
             echo "BUILD: ${a_build}"
-            tasks[label] = { -> build(job: "skynet_build_single_package",
+            tasks[label] = { -> build(job: "SimpleBuild",
                               parameters: [
                                  string(name: "build_label", value: label),
                                  string(name: "channel", value: a_build["channel"]),
@@ -104,7 +104,7 @@ node {
         def server = Artifactory.server data.artifactory.name
         client = Artifactory.newConanClient()
         def serverName = client.remote.add server: server, repo: data.artifactory.repo
-        client.run(command: "remote remove conan.io")
+        //client.run(command: "remote remove conan.io")
     }
 
     stage("Fire deps"){

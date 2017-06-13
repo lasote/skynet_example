@@ -10,5 +10,5 @@ class Conan(ConanFile):
 
     def build(self):
         self.output.warn("Building library...")
-        time.sleep(5)
+        time.sleep(2)
 

@@ -26,7 +26,7 @@ node {
         def server = Artifactory.server data.artifactory.name
         client = Artifactory.newConanClient()
         serverName = client.remote.add server: server, repo: data.artifactory.repo
-        client.run(command: "remote remove conan.io")
+        //client.run(command: "remote remove conan.io")
 
         dir("_lib_repo"){
             git branch: data.repos[params.name_version].branch, url: data.repos[params.name_version].url
@@ -36,7 +36,7 @@ node {
         // For each profile
         dir("_lib_repo"){
             dir(data.repos[params.name_version].dir){
-                client.run(command: "test_package --update --profile " + conf_repo_dir + "/" + params.profile)
+                client.run(command: "test_package --update --profile \"" + conf_repo_dir + "/" + params.profile + "\"")
             }
         }
     }
@@ -46,4 +46,3 @@ node {
         client.run(command: command)
     }
 }
-
