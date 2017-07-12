@@ -3,10 +3,10 @@
 
 properties([parameters([string(description: 'Build label', name: 'build_label', defaultValue: 'Unamed'),
                         string(description: 'Channel', name: 'channel', defaultValue: 'stable'),
-                        string(description: 'Name/Version', name: 'name_version', defaultValue: 'zlib/1.2.8'),
-                        string(description: 'Profile', name: 'profile', defaultValue: './profiles/osx_64'),
+                        string(description: 'Name/Version', name: 'name_version', defaultValue: 'Undefined'),
+                        string(description: 'Profile', name: 'profile', defaultValue: './profiles/64bits'),
                         string(description: 'Config repository branch', name: 'conf_repo_branch', defaultValue: 'master'),
-                        string(description: 'Config repository url', name: 'conf_repo_url', defaultValue: 'https://github.com/lasote/conf_jenkins_test.git'),
+                        string(description: 'Config repository url', name: 'conf_repo_url', defaultValue: 'https://github.com/lasote/skynet_example.git'),
                        ])])
 
 

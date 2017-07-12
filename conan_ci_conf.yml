@@ -2,8 +2,8 @@
 leaves:
    PROJECT:
      profiles:
-        - ./profiles/osx_64
-        - ./profiles/osx_32
+        - ./profiles/64bits
+        - ./profiles/32bits
    
 artifactory:
    name: artifactory
