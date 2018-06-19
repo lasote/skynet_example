@@ -7,7 +7,7 @@ leaves:
    
 artifactory:
    name: artifactory_local
-   repo: conan-local
+   repo: conan-dev-local
    
 repos:
    LIB_A/1.0:
