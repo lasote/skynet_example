@@ -66,7 +66,7 @@ node {
             'sourceRepo'         : 'conan-dev-local',
             'status'             : 'Released',
             'includeDependencies': true,
-            'copy'               : true
+            'copy'               : false
         ]
 
         // Promote build
