@@ -1,9 +1,2 @@
 [settings]
 arch=x86_64
-os=Macos 
-os_build=Macos
-arch_build=x86_64 
-compiler=apple-clang
-compiler.version=9.0 
-compiler.libcxx=libstdc++ 
-build_type=Release 
