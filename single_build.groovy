@@ -3,7 +3,7 @@ properties([parameters([string(description: 'Build label', name: 'build_label', 
                         string(description: 'Name/Version', name: 'name_version', defaultValue: 'LIB_A/1.0'),
                         string(description: 'Profile', name: 'profile', defaultValue: './profiles/64bits'),
                         string(description: 'Config repository branch', name: 'conf_repo_branch', defaultValue: 'master'),
-                        string(description: 'Config repository url', name: 'conf_repo_url', defaultValue: 'https://github.com/jroquelaure/skynet_example.git'),
+                        string(description: 'Config repository url', name: 'conf_repo_url', defaultValue: 'https://github.com/lasote/skynet_example.git'),
                        ])])
 String docker_image = 'lasote/conangcc6-armv7'
 

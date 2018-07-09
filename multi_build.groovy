@@ -1,6 +1,6 @@
 properties([parameters([string(description: 'Recipe reference that has changed', name: 'name_version', defaultValue: 'LIB_A/1.0'),
                         string(description: 'User/Channel', name: 'user_channel', defaultValue: 'lasote/stable'),
-                        string(description: 'Config repository URL', name: 'conf_repo_url', defaultValue: 'https://github.com/jroquelaure/skynet_example.git'),
+                        string(description: 'Config repository URL', name: 'conf_repo_url', defaultValue: 'https://github.com/lasote/skynet_example.git'),
                         string(description: 'Config repository branch', name: 'conf_repo_branch', defaultValue: 'master'),
                         ])])
 
