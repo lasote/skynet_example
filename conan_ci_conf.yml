@@ -6,8 +6,8 @@ leaves:
         - ./profiles/32bits
    
 artifactory:
-   name: artifactory
-   repo: conan-local
+   name: artifactory_local
+   repo: conan-dev-local
    
 repos:
    LIB_A/1.0:

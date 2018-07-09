@@ -1,6 +1,6 @@
 properties([parameters([string(description: 'Recipe reference that has changed', name: 'name_version', defaultValue: 'LIB_A/1.0'),
                         string(description: 'User/Channel', name: 'user_channel', defaultValue: 'lasote/stable'),
-                        string(description: 'Config repository URL', name: 'conf_repo_url', defaultValue: 'https://github.com/lasote/skynet_example.git'),
+                        string(description: 'Config repository URL', name: 'conf_repo_url', defaultValue: 'https://github.com/jroquelaure/skynet_example.git'),
                         string(description: 'Config repository branch', name: 'conf_repo_branch', defaultValue: 'master'),
                         ])])
 
@@ -12,7 +12,7 @@ def get_build_order_for_leave(ref, leave_name, profiles, repo_branch, repo_url, 
         dir(recipe_dir){
             for(profile in profiles){
                 profiles_bo[profile] = []
-                client.run(command: "info --build_order " + ref + " --json bo.json --profile \"" + conf_repo_dir + "/" + profile+ "\"")
+                client.run(command: "info . -bo " + ref + " --json bo.json --profile \"" + conf_repo_dir + "/" + profile+ "\"")
                 def bo_json = readJSON file: "./bo.json"
                 profiles_bo[profile].addAll(bo_json["groups"])
                 echo "Build order for recipe '${ref}' is " + bo_json
@@ -69,7 +69,7 @@ def launch_task_group(tasks_groups, conf_repo_url, conf_repo_branch){
             def a_build = tasks_groups[i][j]
             def label = a_build["build_label"]
             echo "BUILD: ${a_build}"
-            tasks[label] = { -> build(job: "SimpleBuild",
+            tasks[label] = { -> build(job: "conan-single-build",
                               parameters: [
                                  string(name: "build_label", value: label),
                                  string(name: "channel", value: a_build["channel"]),
@@ -89,6 +89,7 @@ def launch_task_group(tasks_groups, conf_repo_url, conf_repo_branch){
 
 
 node {
+     withEnv(['PATH+JENKINSHOME=/usr/local/bin']) {
     currentBuild.displayName = "Rebuild of " + params.name_version
     def data
     def conf_repo_dir
@@ -127,4 +128,5 @@ node {
             }
         }
     }
+     }
 }
