@@ -38,7 +38,7 @@ node {
             // For each profile
             dir("_lib_repo"){
                 dir(data.repos[params.name_version].dir){
-                    client.run(command: "create . lasote/stable -s compiler.version=\"9.1\" -s compiler=\"apple-clang\" -s compiler.libcxx=\"libc++\" -pr \"" + conf_repo_dir + "/" + params.profile + "\"")
+                    client.run(command: "create . lasote/stable -pr \"" + conf_repo_dir + "/" + params.profile + "\"")
                 }
             }
         }
